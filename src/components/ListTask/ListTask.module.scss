@@ -1,0 +1,118 @@
+$edit: #7bc9ce;
+$del: #f04b75;
+$white: #fff;
+$primary: #595959;
+$env: #4dd497;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin-top: 64px;
+  gap: 32px;
+
+  .itens_task {
+    width: 500px;
+    background-color: $white;
+    padding: 24px;
+    border: 3px solid $primary;
+    box-shadow: $primary -10px 10px;
+    color: $primary;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn {
+    &_del {
+      width: 100px;
+      padding: 4px;
+      border: 3px solid $del;
+      background-color: $white;
+      box-shadow: $del -3px 3px;
+
+      &:hover {
+        background-color: $del;
+        color: $white;
+        box-shadow: none;
+      }
+    }
+
+    &_edit {
+      width: 100px;
+      padding: 4px;
+      border: 3px solid $edit;
+      background-color: $white;
+      box-shadow: $edit -3px 3px;
+      margin-left: 16px;
+
+      &:hover {
+        background-color: $edit;
+        color: $white;
+        box-shadow: none;
+      }
+    }
+
+    &_check {
+      width: 100px;
+      padding: 4px;
+      border: 3px solid $env;
+      background-color: $white;
+      box-shadow: $env -3px 3px;
+      margin-left: 16px;
+
+      &:hover {
+        background-color: $env;
+        color: $white;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.modal_edit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  .task_form {
+    background: $white;
+    padding: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    border: 3px solid $edit;
+    box-shadow: $edit -10px 10px;
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      margin-top: 8px;
+      font-weight: 700;
+      color: $primary;
+    }
+
+    .btn {
+      &_enviar {
+        border: 3px solid $edit;
+        background-color: $white;
+        box-shadow: $edit -5px 5px;
+
+        &:hover {
+          background-color: $edit;
+          color: $white;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
