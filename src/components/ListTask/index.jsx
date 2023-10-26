@@ -10,6 +10,7 @@ const ListTask = ({ task, deleteTask, setTask }) => {
   const [show, setShow] = useState(false)
   const [value, setValue] = useState({})
   const [newIndex, setIndex] = useState(0)
+ 
 
   function handleChange(e) {
     const valueInput = e.target.value
@@ -27,14 +28,18 @@ const ListTask = ({ task, deleteTask, setTask }) => {
     const edit = [...task]
     edit.splice(newIndex, 1, value)
     setTask(edit)
+    console.log(newIndex)
 
-    console.log()
+    
 
     setShow(false)
   }
 
+  
+
   return (
     <>
+ 
       <ul className={style.list}>
         {task.map((item, index) => (
           <li key={index} className={style.itens_task}>
@@ -60,6 +65,7 @@ const ListTask = ({ task, deleteTask, setTask }) => {
           </li>
         ))}
       </ul>
+      
 
       <div className={style.box_edit}>
         <Modal show={show} className={style.modal_edit}>

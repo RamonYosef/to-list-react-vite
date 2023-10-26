@@ -8,7 +8,8 @@ const FormData = ({ onAddTask }) => {
   const [nome, setNome] = useState('')
   const [desc, setDesc] = useState('')
   const [index, setIndex] = useState(0)
-  const data = { index: index, nome: nome, desc: desc }
+  const data = { index: index, nome: nome, desc: desc, check: false }
+
 
   const onSubmitForm = (e) => {
     e.preventDefault()
