@@ -13,14 +13,26 @@ $env: #4dd497;
   margin-top: 64px;
   gap: 32px;
 
-  .itens_task {
-    width: 500px;
-    background-color: $white;
-    padding: 24px;
-    border: 3px solid $primary;
-    box-shadow: $primary -10px 10px;
-    color: $primary;
-    font-family: 'Poppins', sans-serif;
+  .itens {
+    &_task {
+      width: 500px;
+      background-color: $white;
+      padding: 24px;
+      border: 3px solid $primary;
+      box-shadow: $primary -10px 10px;
+      color: $primary;
+      font-family: 'Poppins', sans-serif;
+
+      &_checked {
+        width: 500px;
+        background-color: $white;
+        padding: 24px;
+        border: 3px solid $env;
+        box-shadow: $env -10px 10px;
+        color: $primary;
+        font-family: 'Poppins', sans-serif;
+      }
+    }
   }
 
   .btn {

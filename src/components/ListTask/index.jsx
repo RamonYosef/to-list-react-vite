@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import style from './ListTask.module.scss'
@@ -10,7 +10,16 @@ const ListTask = ({ task, deleteTask, setTask }) => {
   const [show, setShow] = useState(false)
   const [value, setValue] = useState({})
   const [newIndex, setIndex] = useState(0)
- 
+
+  useEffect(() => {
+    console.log('mudou')
+  }, [task])
+
+  const checkToggle = () => {
+    const checkTask = [...task]
+    setTask(checkTask)
+    console.log(checkTask)
+  }
 
   function handleChange(e) {
     const valueInput = e.target.value
@@ -30,19 +39,19 @@ const ListTask = ({ task, deleteTask, setTask }) => {
     setTask(edit)
     console.log(newIndex)
 
-    
-
     setShow(false)
   }
 
-  
+  console.log(task)
 
   return (
     <>
- 
       <ul className={style.list}>
         {task.map((item, index) => (
-          <li key={index} className={style.itens_task}>
+          <li
+            key={index}
+            className={`${style.itens_task} ${item.check ? style.itens_task_checked : 'teste'}`}
+          >
             <span>
               <strong>Nome: </strong> {item.nome} <br />
               <strong>Descrição: </strong> {item.desc} <br />
@@ -60,12 +69,31 @@ const ListTask = ({ task, deleteTask, setTask }) => {
               >
                 Edita
               </Btn>
-              <Btn className={style.btn_check}>Concluida</Btn>
+              {item.check ? (
+                <Btn
+                  className={style.btn_check}
+                  onClick={() => {
+                    item.check = false
+                    checkToggle()
+                  }}
+                >
+                  feito Não
+                </Btn>
+              ) : (
+                <Btn
+                  className={style.btn_check}
+                  onClick={() => {
+                    item.check = true
+                    checkToggle()
+                  }}
+                >
+                  Concluida
+                </Btn>
+              )}
             </span>
           </li>
         ))}
       </ul>
-      
 
       <div className={style.box_edit}>
         <Modal show={show} className={style.modal_edit}>
